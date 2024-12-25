@@ -17,7 +17,8 @@ class ChristmasController extends Controller
         ]);
         $fields['chaine'] = Str::random(16);
         $user = User::create($fields);
-        $url = 'http://127.0.0.1:8000/' . $user->chaine;
+        $baseUrl = url('/');
+        $url = $baseUrl .'/'. $user->chaine;
         return view('lien', ['lien' => $url]);
     }
 
